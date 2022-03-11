@@ -12,10 +12,38 @@
           <option value="developer">Web Developer</option>
           <option value="designer">Web Designer</option>
       </select>
+
+        <!-- single checkbox (use true false)-->
+      <div>
+          <input type="checkbox" v-model="accept">
+          <label>Terms and Conditions</label>
+      </div>
+
+        <!-- multiple checkbox (use array)-->
+      <label>Select Names : </label>
+
+      <div>
+          <input type="checkbox" value="kevin" v-model="names">
+          <label>Kevin</label>
+      </div>
+      <div>
+          <input type="checkbox" value="kyawswa" v-model="names">
+          <label>Kyaw Swa</label>
+      </div>
+      <div>
+          <input type="checkbox" value="kayas" v-model="names">
+          <label>KayAs</label>
+      </div>
+      <div>
+          <input type="checkbox" value="yao" v-model="names">
+          <label>Yao</label>
+      </div>
   </form>
   <p>email - {{email}}</p>
   <p>password - {{password}}</p>
   <p>role - {{roles}}</p>
+  <p>accept - {{accept}}</p>
+  <p>{{names}}</p>
 </template>
 
 <script>
@@ -24,7 +52,9 @@ export default {
         return{
             email : "@gmail.com",
             passwoed : "",
-            roles : "unselect"
+            roles : "unselect",
+            accept : false,
+            names : []
         }
     }
 }
@@ -56,5 +86,12 @@ export default {
         border: none;
         border-bottom: 1px solid #ddd;
         color: #555;
+    }
+    input[type = "checkbox"] {
+        display: inline-block;
+        width: 16px;
+        margin: 0 10px 0 0;
+        position: relative;
+        top: 2px;
     }
 </style>
