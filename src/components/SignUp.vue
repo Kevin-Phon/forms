@@ -13,37 +13,24 @@
           <option value="designer">Web Designer</option>
       </select>
 
+      <div>
+          <label for="">Skills : </label>
+          <input type="text" @keyup="addSkill" v-model="skill">
+      </div>
+      {{skills}}
+
         <!-- single checkbox (use true false)-->
       <div>
           <input type="checkbox" v-model="accept">
-          <label>Terms and Conditions</label>
+          <label>Accept Terms and Conditions</label>
       </div>
 
-        <!-- multiple checkbox (use array)-->
-      <label>Select Names : </label>
-
-      <div>
-          <input type="checkbox" value="kevin" v-model="names">
-          <label>Kevin</label>
-      </div>
-      <div>
-          <input type="checkbox" value="kyawswa" v-model="names">
-          <label>Kyaw Swa</label>
-      </div>
-      <div>
-          <input type="checkbox" value="kayas" v-model="names">
-          <label>KayAs</label>
-      </div>
-      <div>
-          <input type="checkbox" value="yao" v-model="names">
-          <label>Yao</label>
-      </div>
   </form>
   <p>email - {{email}}</p>
   <p>password - {{password}}</p>
   <p>role - {{roles}}</p>
   <p>accept - {{accept}}</p>
-  <p>{{names}}</p>
+  
 </template>
 
 <script>
@@ -51,10 +38,19 @@ export default {
     data(){
         return{
             email : "@gmail.com",
-            passwoed : "",
+            password : "",
             roles : "unselect",
             accept : false,
-            names : []
+            skills : [],
+            skill : ""
+        }
+    },
+    methods:{
+        addSkill(e){
+            if(e.key==="," || e.key===" "){
+                this.skills.push(this.skill)
+                this.skill = ""
+            }
         }
     }
 }
